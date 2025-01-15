@@ -1,5 +1,9 @@
 # Hatena-Blog-Theme-Boilerplate
 
+> [! NOTE]
+> `tskaigi-test.hateblo.jp` のテスト用ブログを用意しています
+> 非公開ブログなため、開発者は招待するので @cateiru まではてなidを添えてリクエストください
+
 Boilerplate は、はてなブログのデザインCSSカスタマイズの土台に適したデザインテーマです。
 
 はてなブログの必要最小限の見た目が調整されています。「オリジナルテーマの制作にチャレンジしたいけど、0から作るのが大変」という方は、このデザインテーマをもとにしてCSSを書くと比較的楽にテーマが作れます。
@@ -60,7 +64,7 @@ $ npm start -- BLOG_DOMAIN_NAME
 コマンド実行例:
 
 ``` console
-$ npm start -- example.hatenablog.com
+$ npm start -- tskaigi-test.hateblo.jp
 ```
 
 以上が完了すると、動作確認用のブログに開発中のテーマが反映されます。ブログにアクセスし、表示を確認しながらテーマの開発を行なってください。
