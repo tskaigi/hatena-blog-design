@@ -1,0 +1,68 @@
+// ヘッダーのスタイル
+
+
+header {
+    height: 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    #blog-title-content {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        position: relative;
+
+        h1#title {
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            margin: 0;
+
+            a {
+                color: $text-title;
+                text-decoration: none;
+            }
+        }
+
+        h2#blog-description {
+            font-size: 16px;
+            font-weight: normal;
+            text-align: center;
+            margin: 0;
+
+            color: $text-description;
+        }
+
+        // 黄色金魚
+        &::before {
+            content: "";
+            display: inline-block;
+            background-image: $goldfish-yellow;
+            background-repeat: no-repeat;
+            width: 162px;
+            height: 123px;
+
+            position: absolute;
+            top: 0;
+            left: 200px;
+        }
+
+        // 青金魚
+        &::after {
+            content: "";
+            display: inline-block;
+            background-image: $goldfish-blue;
+            background-repeat: no-repeat;
+            width: 103px;
+            height: 123px;
+
+            position: absolute;
+            top: -25px;
+            right: 250px;
+        }
+    }
+
+
+
+}
