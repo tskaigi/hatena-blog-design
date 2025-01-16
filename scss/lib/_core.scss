@@ -20,9 +20,9 @@ body.page-index, body.page-archive {
       &::before {
         content: "";
         width: 100%;
-        height: 100px;
+        height: 250px;
         position: absolute;
-        z-index: 1;
+        z-index: 2;
 
         background-image: linear-gradient(0deg, #f1f8ff, #85c4ff);
         opacity: 0.6;

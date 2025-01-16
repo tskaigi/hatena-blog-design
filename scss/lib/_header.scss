@@ -1,68 +1,98 @@
 // ヘッダーのスタイル
 
-
 header {
-    height: 270px;
+  height: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  #blog-title-content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    gap: 14px;
+    position: relative;
 
-    #blog-title-content {
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-        position: relative;
+    h1#title {
+      font-size: 30px;
+      font-weight: bold;
+      text-align: center;
+      margin: 0;
 
-        h1#title {
-            font-size: 30px;
-            font-weight: bold;
-            text-align: center;
-            margin: 0;
-
-            a {
-                color: $text-title;
-                text-decoration: none;
-            }
-        }
-
-        h2#blog-description {
-            font-size: 16px;
-            font-weight: normal;
-            text-align: center;
-            margin: 0;
-
-            color: $text-description;
-        }
-
-        // 黄色金魚
-        &::before {
-            content: "";
-            display: inline-block;
-            background-image: $goldfish-yellow;
-            background-repeat: no-repeat;
-            width: 162px;
-            height: 123px;
-
-            position: absolute;
-            top: 0;
-            left: 200px;
-        }
-
-        // 青金魚
-        &::after {
-            content: "";
-            display: inline-block;
-            background-image: $goldfish-blue;
-            background-repeat: no-repeat;
-            width: 103px;
-            height: 123px;
-
-            position: absolute;
-            top: -25px;
-            right: 250px;
-        }
+      a {
+        color: $text-title;
+        text-decoration: none;
+      }
     }
 
+    h2#blog-description {
+      font-size: 16px;
+      font-weight: normal;
+      text-align: center;
+      margin: 0;
 
+      color: $text-description;
+    }
 
+    // 黄色金魚
+    &::before {
+      content: "";
+      display: inline-block;
+      background-image: $goldfish-yellow;
+      background-repeat: no-repeat;
+      width: 162px;
+      height: 123px;
+
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-450px);
+      z-index: 3;
+    }
+
+    // 青金魚
+    &::after {
+      content: "";
+      display: inline-block;
+      background-image: $goldfish-blue;
+      background-repeat: no-repeat;
+      width: 103px;
+      height: 123px;
+
+      position: absolute;
+      top: -25px;
+      right: 50%;
+      transform: translateX(400px);
+      z-index: 3;
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    background-image: $water-ripples-right;
+    background-repeat: no-repeat;
+    width: 800px;
+    height: 800px;
+    pointer-events: none;
+
+    z-index: 1;
+    top: -400px;
+    right: -400px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    background-image: $water-ripples-left;
+    background-repeat: no-repeat;
+    width: 400px;
+    height: 400px;
+    pointer-events: none;
+
+    z-index: 1;
+    top: 130px;
+    left: -150px;
+  }
 }
