@@ -1,6 +1,7 @@
 # Hatena-Blog-Theme-Boilerplate
 
-> [! NOTE]
+> [!NOTE]
+> >
 > `tskaigi-test.hateblo.jp` のテスト用ブログを用意しています
 > 非公開ブログなため、開発者は招待するので @cateiru まではてなidを添えてリクエストください
 
