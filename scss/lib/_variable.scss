@@ -6,11 +6,12 @@ $font-family-monospace: 'Monaco', 'Consolas', 'Courier New', Courier, monospace,
 
 // 背景色
 $background: #fff;
-$background-entry: #C2C2D1;
+$background-entries: #F1F8FF;
 $background-footer: linear-gradient(135deg, #3A89C4, #1071D3);
+$background-entries-entry: #fff;
 
 // text color
-$text: #454545;
+$text: #2A2A2D;
 $text-title: #0C7EDC;
 $text-description: #2A2A2D;
 
@@ -19,7 +20,7 @@ $link: #1487bd;
 $hover: darken($link, 10%);
 
 // border
-$border: #ddd;
+$border: #0C7EDC;
 
 // button
 $btn: #fff;
