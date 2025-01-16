@@ -1,0 +1,145 @@
+// モジュール
+#box2-inner {
+    padding: 64px;
+    color: $footer;
+    background-image: $background-footer-gradient;
+    display: flex;
+    flex-direction: row;
+    gap: 128px;
+
+    a {
+        color: $footer;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    & > div {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .hatena-module-title {
+        font-weight: bold;
+    }
+
+    // プロフィールモジュール
+    .hatena-module-profile {
+        .hatena-module-body {
+            position: relative;
+
+            .profile-icon-link {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: 0;
+            }
+
+            .id, .hatena-follow-button-box, .profile-about {
+                padding-left: 80px;
+            }
+        }
+    }
+
+    // 検索モジュール
+    .hatena-module-search-box {
+        // TODO
+    }
+}
+
+// はてなブログ デザイン設定 > カスタマイズ > フッタ で HTML を定義する
+// 以下定義するHTML:
+// <footer class="custom-footer">
+//     <div class="logo-group">
+//         <a href="https://2025.tskaigi.org/" target="_blank">
+//             <p class="logo">TSKaigi</p>
+//         </a>
+//         <p class="tskaigi-desctiption">一般社団法人 TSKaigi Association</p>
+//     </div>
+//    <div class="menu-group">
+//        <a href="" target="_blank">ミッション</a>
+//        <a href="" target="_blank">プロポーザル募集</a>
+//        <a href="" target="_blank">スタッフ</a>
+//    </div>
+//    <div class="sns-group">
+//        <p>公式アカウント</p>
+//        <ul>
+//            <li><a href="https://x.com/tskaigi" target="_blank" rel="noopener noreferrer">公式X</a></li>
+//            <li>Blog</li>
+//            <li><a href="https://www.youtube.com/@tskaigi" target="_blank" rel="noopener noreferrer">公式YouTube</a></li>
+//        </ul>
+//    </div>
+// </footer>
+footer.custom-footer {
+    font-size: 14px;
+    color: $footer;
+    background-color: $background-footer;
+    display: flex;
+    flex-direction: row;
+    gap: 128px;
+    padding: 64px 0 64px 64px;
+
+
+    p {
+        padding: 0;
+        margin: 0;
+    }
+
+    a {
+        color: $footer;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .logo-group {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+
+        .logo {
+            background-image: $footer-logo;
+            background-repeat: no-repeat;
+            width: 128px;
+            height: 41px;
+
+            // テキストは隠す
+            text-indent: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+    }
+
+    .menu-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+
+    }
+
+    .sns-group {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        p {
+            font-weight: bold;
+        }
+
+        ul {
+            padding: 0 0 0 12px;
+            margin: 0;
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+}
