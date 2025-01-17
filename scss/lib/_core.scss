@@ -7,7 +7,8 @@ body {
   overflow-x: hidden;
 }
 
-body.page-index, body.page-archive {
+body.page-index,
+body.page-archive {
   div#content {
     #main-inner {
       display: flex;
@@ -42,6 +43,89 @@ body.page-index, body.page-archive {
           box-sizing: border-box;
           border-radius: 16px;
           background-color: $background-entries-entry;
+
+          padding: 31px 20px;
+          position: relative;
+
+          // エントリタイトル・日付
+          .archive-entry-header {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            margin-bottom: 12px;
+
+            .archive-date {
+              font-size: 16px;
+              font-weight: bold;
+              margin: 0;
+              padding: 0;
+
+              a {
+                color: $date;
+                text-decoration: none;
+
+                &:hover {
+                  color: $date-hover;
+                }
+              }
+            }
+
+            .entry-title {
+              font-size: 24px;
+              font-weight: bold;
+              color: $entry-title;
+              margin: 0;
+              padding: 0;
+
+              a {
+                color: $entry-title;
+                text-decoration: none;
+
+                &:hover {
+                  color: $entry-title-hover;
+                }
+              }
+            }
+          }
+
+          // はてなブログタグ
+          // カテゴリがあるので非表示にしてしまう
+          .categories {
+            display: none;
+          }
+
+          // エントリサムネイル
+          .entry-thumb {
+            width: 110px;
+            height: 110px;
+            border-radius: 4px;
+          }
+
+          // エントリ説明
+          .entry-description {
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+            color: $text;
+          }
+
+          .archive-entry-tags-wrapper {
+            .archive-entry-tag-link {
+                background-color: $background-tag;
+                color: $tag;
+                font-size: 16px;
+                padding: 2px 15px;
+                border-radius: 50px;
+            }
+          }
+
+          // はてなスター
+          .social-buttons {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+          }
         }
       }
     }

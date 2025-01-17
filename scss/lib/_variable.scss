@@ -10,12 +10,18 @@ $background-entries: #F1F8FF;
 $background-footer-gradient: linear-gradient(0deg, #1071D3, #3A89C4);
 $background-footer: #1071D3;
 $background-entries-entry: #fff;
+$background-tag: #1071D3;
 
 // text color
 $text: #2A2A2D;
 $text-title: #0C7EDC;
 $text-description: #2A2A2D;
 $footer: #fff;
+$entry-title: #2A2A2D;
+$entry-title-hover: lighten($entry-title, 30%);
+$date: #C2C2D1;
+$date-hover: darken($date, 20%);
+$tag: #fff;
 
 // link
 $link: #1487bd;
