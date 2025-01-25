@@ -1,0 +1,76 @@
+.entry {
+    max-width: 800px;
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: 10px;
+    box-sizing: border-box;
+
+    margin-top: 50px;
+
+    .entry-header {
+        // エントリの更新日
+        .entry-date {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0;
+            padding: 0;
+
+            a, span {
+                color: $date;
+                text-decoration: none;
+            }
+
+            a {
+                &:hover {
+                    color: $date-hover;
+                }
+            }
+
+            .blogicon {
+                vertical-align: 0px;
+            }
+        }
+
+        // エントリの見出し
+        .entry-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: $entry-title;
+            margin: 0;
+            padding: 0;
+
+            a {
+                color: $entry-title;
+                text-decoration: none;
+
+                &:hover {
+                    color: $entry-title-hover;
+                }
+            }
+        }
+
+        // エントリのカテゴリ
+        .entry-categories {
+            vertical-align: middle;
+
+            .entry-category-link {
+                background-color: $background-tag;
+                color: $tag;
+                font-size: 12px;
+                padding: 2px 15px;
+                border-radius: 50px;
+                display: inline-block;
+                text-decoration: none;
+
+                &::before {
+                    content: "#";
+                    padding-right: 5px;
+                }
+
+                &:hover {
+                    background-color: $background-tag-hover;
+                }
+            }
+        }
+     }
+}

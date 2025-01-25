@@ -101,7 +101,7 @@ body.page-archive {
                 }
             }
 
-            .archive-heading {
+            .archive-heading, .archive-header-category {
                 z-index: 2;
             }
 
@@ -133,6 +133,7 @@ body.page-archive {
                     max-width: calc(600px * 3 + 40px * 2);
                 }
 
+                // エントリ一覧の1要素
                 .archive-entry {
                     width: 100%;
                     z-index: 2;
@@ -143,11 +144,16 @@ body.page-archive {
                     border-radius: 16px;
                     background-color: $background-entries-entry;
 
-                    padding: 31px 20px;
+                    padding: 30px 20px 35px 20px;
                     position: relative;
 
                     @media screen and ($mq-sm) {
                         width: 600px;
+                    }
+
+                    // カテゴリがある場合、その分の余白を確保する
+                    &:has(.categories) {
+                        padding-bottom: 75px;
                     }
 
                     // エントリタイトル・日付
@@ -195,7 +201,28 @@ body.page-archive {
                     // はてなブログタグ
                     // カテゴリがあるので非表示にしてしまう
                     .categories {
-                        display: none;
+                        position: absolute;
+                        bottom: 45px;
+                        left: auto;
+
+                        .archive-category-link {
+                            background-color: $background-tag;
+                            color: $tag;
+                            font-size: 12px;
+                            padding: 2px 15px;
+                            border-radius: 50px;
+                            display: inline-block;
+                            text-decoration: none;
+
+                            &::before {
+                                content: "#";
+                                padding-right: 5px;
+                            }
+
+                            &:hover {
+                                background-color: $background-tag-hover;
+                            }
+                        }
                     }
 
                     // エントリサムネイル
@@ -214,16 +241,7 @@ body.page-archive {
                     }
 
                     .archive-entry-tags-wrapper {
-                        vertical-align: middle;
-
-                        .archive-entry-tag-link {
-                            background-color: $background-tag;
-                            color: $tag;
-                            font-size: 12px;
-                            padding: 2px 15px;
-                            border-radius: 50px;
-                            display: inline-block;
-                        }
+                        display: none;
                     }
 
                     // はてなスター
