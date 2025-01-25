@@ -18,6 +18,7 @@ body.page-archive {
       background-color: $background-entries;
       position: relative;
 
+      // 水の境界線
       &::before {
         content: "";
         width: 100%;
@@ -32,12 +33,34 @@ body.page-archive {
 
       .archive-entries {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
         gap: 40px;
+        width: 100%;
+        padding-inline: 20px;
+
+        grid-template-columns: 1fr;
+
+        @media screen and ($mq-sm) {
+          grid-template-columns: 1fr;
+        }
+
+        // 2カラムで表示できる幅になったら2カラムにする
+        @media screen and (min-width: calc(600px * 2 + 40px + 20px * 2)) {
+          grid-template-columns: repeat(2, 1fr);
+          padding-inline: 20px;
+          max-width: calc(600px * 2 + 40px);
+        }
+
+        // 3カラムで表示できる幅になったら3カラムにする
+        @media screen and (min-width: calc(600px * 3 + 40px * 2 + 20px * 2)) {
+          grid-template-columns: repeat(3, 1fr);
+          padding-inline: 20px;
+          max-width: calc(600px * 3 + 40px * 2);
+        }
 
         .archive-entry {
-          max-width: 600px;
+          width: 100%;
           z-index: 2;
+          margin-inline: auto;
 
           border: 2px solid $border;
           box-sizing: border-box;
@@ -46,6 +69,10 @@ body.page-archive {
 
           padding: 31px 20px;
           position: relative;
+
+          @media screen and ($mq-sm) {
+            width: 600px;
+          }
 
           // エントリタイトル・日付
           .archive-entry-header {
@@ -112,11 +139,11 @@ body.page-archive {
 
           .archive-entry-tags-wrapper {
             .archive-entry-tag-link {
-                background-color: $background-tag;
-                color: $tag;
-                font-size: 16px;
-                padding: 2px 15px;
-                border-radius: 50px;
+              background-color: $background-tag;
+              color: $tag;
+              font-size: 16px;
+              padding: 2px 15px;
+              border-radius: 50px;
             }
           }
 

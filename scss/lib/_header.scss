@@ -5,6 +5,7 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
 
   #blog-title-content {
     display: flex;
@@ -17,6 +18,7 @@ header {
       font-weight: bold;
       text-align: center;
       margin: 0;
+      z-index: 2;
 
       a {
         color: $text-title;
@@ -29,24 +31,27 @@ header {
       font-weight: normal;
       text-align: center;
       margin: 0;
+      z-index: 2;
 
       color: $text-description;
     }
 
     // 黄色金魚
-    &::before {
-      content: "";
-      display: inline-block;
-      background-image: $goldfish-yellow;
-      background-repeat: no-repeat;
-      width: 162px;
-      height: 123px;
+    @media screen and ($mq-sm) {
+      &::before {
+        content: "";
+        display: inline-block;
+        background-image: $goldfish-yellow;
+        background-repeat: no-repeat;
+        width: 162px;
+        height: 123px;
 
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-450px);
-      z-index: 3;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-450px);
+        z-index: 3;
+      }
     }
 
     // 青金魚
@@ -59,13 +64,20 @@ header {
       height: 123px;
 
       position: absolute;
-      top: -25px;
-      right: 50%;
-      transform: translateX(400px);
       z-index: 3;
+
+      bottom: -120px;
+      right: 20px;
+
+      @media screen and ($mq-sm) {
+        top: -25px;
+        right: 50%;
+        transform: translateX(400px);
+      }
     }
   }
 
+  // 水紋右
   &::before {
     content: "";
     position: absolute;
@@ -75,24 +87,51 @@ header {
     width: 800px;
     height: 800px;
     pointer-events: none;
+    overflow: hidden;
 
     z-index: 1;
-    top: -400px;
-    right: -400px;
+    top: -550px;
+    right: -550px;
+
+    @media screen and ($mq-sm) {
+        top: -400px;
+        right: -400px;
+    }
   }
 
-  &::after {
-    content: "";
-    position: absolute;
-    display: inline-block;
-    background-image: $water-ripples-left;
-    background-repeat: no-repeat;
-    width: 400px;
-    height: 400px;
-    pointer-events: none;
+  // 水紋左
+  @media screen and ($mq-sm) {
+    &::after {
+      content: "";
+      position: absolute;
+      display: inline-block;
+      background-image: $water-ripples-left;
+      background-repeat: no-repeat;
+      width: 400px;
+      height: 400px;
+      pointer-events: none;
+      overflow: hidden;
 
-    z-index: 1;
-    top: 130px;
-    left: -150px;
+      z-index: 1;
+      top: 130px;
+      left: -150px;
+    }
   }
+}
+
+.blog-controlls {
+    display: flex;
+    justify-content: right;
+
+    .blog-controlls-blog-icon {
+        display: none;
+    }
+
+    .blog-controlls-title {
+        display: none;
+    }
+
+    .blog-controlls-subscribe-btn {
+        z-index: 2;
+    }
 }
