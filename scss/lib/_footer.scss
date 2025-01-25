@@ -4,8 +4,17 @@
   color: $footer;
   background-image: $background-footer-gradient;
   display: flex;
-  flex-direction: row;
-  gap: 128px;
+
+  flex-direction: column;
+  gap: 40px;
+
+  border-bottom: 2px solid $border;
+
+  @media screen and ($mq-md) {
+    flex-direction: row;
+    gap: 128px;
+    border-bottom: none;
+  }
 
   a {
     color: $footer;
@@ -49,7 +58,7 @@
   // 検索モジュール
   .hatena-module-search-box {
     .hatena-module-body {
-        width: 350px;
+      width: 350px;
 
       .search-form {
         border-radius: 50px;
@@ -121,9 +130,16 @@ footer.custom-footer {
   color: $footer;
   background-color: $background-footer;
   display: flex;
-  flex-direction: row;
-  gap: 128px;
-  padding: 64px 0 64px 64px;
+
+  flex-direction: column;
+  gap: 40px;
+  padding: 64px 40px;
+
+  @media screen and ($mq-md) {
+    flex-direction: row;
+    gap: 128px;
+    padding: 64px 0 64px 64px;
+  }
 
   p {
     padding: 0;
