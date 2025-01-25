@@ -16,6 +16,11 @@ $background-search-from: #fff;
 $background-search-icon: #345DA7;
 $background-pager: #0C7EDC;
 $background-pager-hover: darken($background-pager, 10%);
+$background-table-of-contents: #F1F8FF;
+$background-table-head: #a7d3ff;
+$background-code-block: #F1F8FF;
+$background-subscribe: #1071D3;
+$background-subscribe-hover: darken($background-subscribe, 10%);
 
 // text color
 $text: #2A2A2D;
@@ -29,13 +34,20 @@ $date-hover: darken($date, 20%);
 $tag: #fff;
 $form-placeholder: #AFB7C6;
 $pager: #fff;
+$anchor: #1071D3;
+$anchor-hover: darken($anchor, 20%);
+$anchor-visited: darken($anchor, 10%);
+$author: #C2C2D1;
 
 // link
 $link: #1487bd;
 $hover: darken($link, 10%);
 
-// border
+// border, marker
 $border: #0C7EDC;
+$border-table: #a8a8b0;
+$border-heading: #dcdce6;
+$marker: #0C7EDC;
 
 // button
 $btn: #fff;

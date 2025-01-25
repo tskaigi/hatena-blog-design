@@ -6,71 +6,239 @@
     box-sizing: border-box;
 
     margin-top: 50px;
+    margin-bottom: 50px;
 
-    .entry-header {
-        // エントリの更新日
-        .entry-date {
-            font-size: 16px;
-            font-weight: bold;
-            margin: 0;
-            padding: 0;
+    .entry-inner {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
 
-            a, span {
-                color: $date;
-                text-decoration: none;
-            }
+        .entry-header {
+            // エントリの更新日
+            .entry-date {
+                font-size: 16px;
+                font-weight: bold;
+                margin: 0;
+                padding: 0;
 
-            a {
-                &:hover {
-                    color: $date-hover;
+                a, span {
+                    color: $date;
+                    text-decoration: none;
+                }
+
+                a {
+                    &:hover {
+                        color: $date-hover;
+                    }
+                }
+
+                .blogicon {
+                    vertical-align: 0px;
                 }
             }
 
-            .blogicon {
-                vertical-align: 0px;
-            }
-        }
-
-        // エントリの見出し
-        .entry-title {
-            font-size: 32px;
-            font-weight: bold;
-            color: $entry-title;
-            margin: 0;
-            padding: 0;
-
-            a {
+            // エントリの見出し
+            .entry-title {
+                font-size: 32px;
+                font-weight: bold;
                 color: $entry-title;
-                text-decoration: none;
+                margin: 0;
+                padding: 0;
 
-                &:hover {
-                    color: $entry-title-hover;
+                a {
+                    color: $entry-title;
+                    text-decoration: none;
+
+                    &:hover {
+                        color: $entry-title-hover;
+                    }
+                }
+            }
+
+            // エントリのカテゴリ
+            .entry-categories {
+                vertical-align: middle;
+
+                .entry-category-link {
+                    background-color: $background-tag;
+                    color: $tag;
+                    font-size: 12px;
+                    padding: 2px 15px;
+                    border-radius: 50px;
+                    display: inline-block;
+                    text-decoration: none;
+
+                    &::before {
+                        content: "#";
+                        padding-right: 5px;
+                    }
+
+                    &:hover {
+                        background-color: $background-tag-hover;
+                    }
                 }
             }
         }
 
-        // エントリのカテゴリ
-        .entry-categories {
-            vertical-align: middle;
-
-            .entry-category-link {
-                background-color: $background-tag;
-                color: $tag;
-                font-size: 12px;
-                padding: 2px 15px;
-                border-radius: 50px;
-                display: inline-block;
-                text-decoration: none;
+        .entry-content {
+            // 目次
+            .table-of-contents {
+                position: relative;
+                background-color: $background-table-of-contents;
+                border-radius: 7px;
+                padding: 60px 40px 20px 40px;
 
                 &::before {
-                    content: "#";
-                    padding-right: 5px;
+                    content: "目次";
+                    position: absolute;
+                    top: 20px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    font-weight: bold;
                 }
+            }
+
+            // フォトライフ画像
+            .hatena-fotolife {
+                border-radius: 7px;
+            }
+
+            // 罫線
+            hr {
+                height: 2px;
+                border: none;
+                background-color: $border;
+                border-radius: 2px;
+            }
+
+            // 引用
+            blockquote {
+                position: relative;
+
+                &::before {
+                    content: "";
+                    color: $border;
+                    position: absolute;
+                    top: 0;
+                    left: -20px;
+                    height: 100%;
+                    width: 4px;
+                    border-radius: 4px;
+                    background-color: $border;
+                }
+            }
+
+            // リンク
+            a {
+                color: $anchor;
 
                 &:hover {
-                    background-color: $background-tag-hover;
+                    color: $anchor-hover;
+                }
+
+                &:visited {
+                    color: $anchor-visited;
+                }
+            }
+
+            // テーブル
+            table {
+                width: 100%;
+
+                thead {
+                    background-color: $background-table-head;
+
+                    th {
+                        padding: 5px 10px;
+                    }
+                }
+
+                td {
+                    padding: 3px 10px;
+                }
+
+                &, td, th {
+                    border: 1px solid $border-table;
+                    border-collapse: collapse;
+                }
+            }
+
+            // コードブロック
+            .code {
+                background-color: $background-code-block;
+                padding: 20px 30px;
+                overflow-x: auto;
+                border-radius: 7px;
+            }
+
+            // 脚注
+            div.footnote {
+                p.footnote {
+                    margin-top: 15px;
+                }
+            }
+
+            h1 {
+                border-bottom: 1px solid $border-heading;
+            }
+
+            h2 {
+                border-bottom: 1px solid $border-heading;
+            }
+        }
+
+        .entry-footer {
+            // 著者
+            .author {
+                color: $author;
+            }
+
+            // 更新日
+            .entry-footer-time {
+                font-size: 16px;
+                margin: 0;
+                padding: 0;
+
+                a, span {
+                    color: $date;
+                    text-decoration: none;
+                }
+
+                a {
+                    &:hover {
+                        color: $date-hover;
+                    }
+                }
+
+                .blogicon {
+                    vertical-align: 0px;
+                }
+            }
+
+            // 読者になるボタン
+            .entry-footer-subscribe {
+                a {
+                    display: inline-block;
+                    background-color: $background-subscribe;
+                    color: $footer;
+                    font-size: 12px;
+                    padding: 2px 10px;
+                    border-radius: 50px;
+                    text-decoration: none;
+                    vertical-align: middle;
+
+                    &:hover {
+                        background: $background-subscribe-hover;
+                    }
                 }
             }
         }
-     }
+    }
+}
+
+body.page-entry {
+    // エントリページではページャーを非表示にする
+    .pager {
+        display: none;
+    }
 }
