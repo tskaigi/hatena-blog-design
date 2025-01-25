@@ -1,201 +1,282 @@
 html,
 body {
-  font-family: $font-family-base;
-  color: $text;
-  background-color: $background;
-  line-height: 1.6;
-  overflow-x: hidden;
+    font-family: $font-family-base;
+    color: $text;
+    background-color: $background;
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
 body.page-index,
 body.page-archive {
-  div#content {
-    #main-inner {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding-top: 100px;
-      padding-bottom: 50px;
-      background-color: $background-entries;
-      position: relative;
-      gap: 26px;
-      padding-inline: 20px;
-
-      // 水の境界線
-      &::before {
-        content: "";
-        width: 100%;
-        height: 250px;
-        position: absolute;
-        z-index: 2;
-
-        background-image: linear-gradient(0deg, #f1f8ff, #85c4ff);
-        opacity: 0.6;
-        top: 0;
-      }
-
-      .archive-entries {
-        display: grid;
-        gap: 40px;
-        width: 100%;
-
-        grid-template-columns: 1fr;
-
-        @media screen and ($mq-sm) {
-          grid-template-columns: 1fr;
-        }
-
-        // 2カラムで表示できる幅になったら2カラムにする
-        @media screen and (min-width: calc(600px * 2 + 40px + 20px * 2)) {
-          grid-template-columns: repeat(2, 1fr);
-          max-width: calc(600px * 2 + 40px);
-        }
-
-        // 3カラムで表示できる幅になったら3カラムにする
-        @media screen and (min-width: calc(600px * 3 + 40px * 2 + 40px * 2)) {
-          grid-template-columns: repeat(3, 1fr);
-          max-width: calc(600px * 3 + 40px * 2);
-        }
-
-        .archive-entry {
-          width: 100%;
-          z-index: 2;
-          margin-inline: auto;
-
-          border: 2px solid $border;
-          box-sizing: border-box;
-          border-radius: 16px;
-          background-color: $background-entries-entry;
-
-          padding: 31px 20px;
-          position: relative;
-
-          @media screen and ($mq-sm) {
-            width: 600px;
-          }
-
-          // エントリタイトル・日付
-          .archive-entry-header {
+    div#content {
+        #main-inner {
             display: flex;
             flex-direction: column;
-            gap: 5px;
+            justify-content: center;
+            align-items: center;
+            padding-top: 100px;
+            padding-bottom: 50px;
+            background-color: $background-entries;
+            position: relative;
+            gap: 26px;
+            padding-inline: 20px;
 
-            margin-bottom: 12px;
+            // 水の境界線
+            &::before {
+                content: "";
+                width: 100%;
+                height: 250px;
+                position: absolute;
+                z-index: 2;
 
-            .archive-date {
-              font-size: 16px;
-              font-weight: bold;
-              margin: 0;
-              padding: 0;
+                background-image: linear-gradient(0deg, #f1f8ff, #85c4ff);
+                opacity: 0.6;
+                top: 0;
+            }
 
-              a {
-                color: $date;
-                text-decoration: none;
+            // 検索したときの表示
+            .search-result {
+                display: flex;
+                flex-direction: column-reverse;
+                z-index: 3;
+                width: 100%;
+                max-width: 600px;
+                margin-bottom: 0;
 
-                &:hover {
-                  color: $date-hover;
+                @media screen and (min-width: calc(
+                            600px * 2 + 40px + 20px * 2
+                        )) {
+                    max-width: calc(600px * 2 + 40px);
                 }
-              }
-            }
 
-            .entry-title {
-              font-size: 24px;
-              font-weight: bold;
-              color: $entry-title;
-              margin: 0;
-              padding: 0;
-
-              a {
-                color: $entry-title;
-                text-decoration: none;
-
-                &:hover {
-                  color: $entry-title-hover;
+                @media screen and (min-width: calc(
+                            600px * 3 + 40px * 2 + 40px * 2
+                        )) {
+                    margin-inline: 40px;
+                    max-width: calc(600px * 3 + 40px * 2);
                 }
-              }
+
+                .search-result-form {
+                    max-width: 600px;
+                    width: 100%;
+
+                    border-radius: 50px;
+                    background-color: $background-search-from;
+                    position: relative;
+
+                    .search-result-input {
+                        box-sizing: border-box;
+                        border: none;
+                        outline: none;
+                        background: none;
+                        padding: 10px 30px 10px 20px;
+                        font-size: 16px;
+                        width: 100%;
+
+                        &::placeholder {
+                            color: $form-placeholder;
+                        }
+                    }
+
+                    .search-result-button {
+                        position: absolute;
+                        right: 10px;
+                        top: 50%;
+                        transform: translateY(-50%);
+
+                        width: 20px;
+                        height: 20px;
+
+                        border: none;
+                        outline: none;
+                        text-indent: -9999px;
+                        cursor: pointer;
+                        opacity: 1;
+
+                        background: $background-search-icon;
+                        background-blend-mode: multiply;
+                        mask-image: $search-icon;
+                    }
+                }
             }
-          }
 
-          // はてなブログタグ
-          // カテゴリがあるので非表示にしてしまう
-          .categories {
-            display: none;
-          }
-
-          // エントリサムネイル
-          .entry-thumb {
-            width: 110px;
-            height: 110px;
-            border-radius: 4px;
-          }
-
-          // エントリ説明
-          .entry-description {
-            margin: 0;
-            padding: 0;
-            font-size: 16px;
-            color: $text;
-          }
-
-          .archive-entry-tags-wrapper {
-            vertical-align: middle;
-
-            .archive-entry-tag-link {
-              background-color: $background-tag;
-              color: $tag;
-              font-size: 12px;
-              padding: 2px 15px;
-              border-radius: 50px;
-              display: inline-block;
+            .archive-heading {
+                z-index: 2;
             }
-          }
 
-          // はてなスター
-          .social-buttons {
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-          }
+            // エントリ一覧
+            .archive-entries {
+                display: grid;
+                gap: 40px;
+                width: 100%;
+
+                grid-template-columns: 1fr;
+
+                @media screen and ($mq-sm) {
+                    grid-template-columns: 1fr;
+                }
+
+                // 2カラムで表示できる幅になったら2カラムにする
+                @media screen and (min-width: calc(
+                            600px * 2 + 40px + 20px * 2
+                        )) {
+                    grid-template-columns: repeat(2, 1fr);
+                    max-width: calc(600px * 2 + 40px);
+                }
+
+                // 3カラムで表示できる幅になったら3カラムにする
+                @media screen and (min-width: calc(
+                            600px * 3 + 40px * 2 + 40px * 2
+                        )) {
+                    grid-template-columns: repeat(3, 1fr);
+                    max-width: calc(600px * 3 + 40px * 2);
+                }
+
+                .archive-entry {
+                    width: 100%;
+                    z-index: 2;
+                    margin-inline: auto;
+
+                    border: 2px solid $border;
+                    box-sizing: border-box;
+                    border-radius: 16px;
+                    background-color: $background-entries-entry;
+
+                    padding: 31px 20px;
+                    position: relative;
+
+                    @media screen and ($mq-sm) {
+                        width: 600px;
+                    }
+
+                    // エントリタイトル・日付
+                    .archive-entry-header {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+
+                        margin-bottom: 12px;
+
+                        .archive-date {
+                            font-size: 16px;
+                            font-weight: bold;
+                            margin: 0;
+                            padding: 0;
+
+                            a {
+                                color: $date;
+                                text-decoration: none;
+
+                                &:hover {
+                                    color: $date-hover;
+                                }
+                            }
+                        }
+
+                        .entry-title {
+                            font-size: 24px;
+                            font-weight: bold;
+                            color: $entry-title;
+                            margin: 0;
+                            padding: 0;
+
+                            a {
+                                color: $entry-title;
+                                text-decoration: none;
+
+                                &:hover {
+                                    color: $entry-title-hover;
+                                }
+                            }
+                        }
+                    }
+
+                    // はてなブログタグ
+                    // カテゴリがあるので非表示にしてしまう
+                    .categories {
+                        display: none;
+                    }
+
+                    // エントリサムネイル
+                    .entry-thumb {
+                        width: 110px;
+                        height: 110px;
+                        border-radius: 4px;
+                    }
+
+                    // エントリ説明
+                    .entry-description {
+                        margin: 0;
+                        padding: 0;
+                        font-size: 16px;
+                        color: $text;
+                    }
+
+                    .archive-entry-tags-wrapper {
+                        vertical-align: middle;
+
+                        .archive-entry-tag-link {
+                            background-color: $background-tag;
+                            color: $tag;
+                            font-size: 12px;
+                            padding: 2px 15px;
+                            border-radius: 50px;
+                            display: inline-block;
+                        }
+                    }
+
+                    // はてなスター
+                    .social-buttons {
+                        position: absolute;
+                        bottom: 10px;
+                        left: 10px;
+                    }
+                }
+            }
+
+            // ページャー表示
+            // 共通スタイルは _pager.scss に記述しているが、幅などのスタイルはこちらで定義している
+            .pager {
+                position: relative;
+                z-index: 2;
+                width: 100%;
+                max-width: 600px;
+
+                @media screen and (min-width: calc(
+                            600px * 2 + 40px + 20px * 2
+                        )) {
+                    max-width: calc(600px * 2 + 40px);
+                }
+
+                @media screen and (min-width: calc(
+                            600px * 3 + 40px * 2 + 40px * 2
+                        )) {
+                    margin-inline: 40px;
+                    max-width: calc(600px * 3 + 40px * 2);
+                }
+            }
+
+            // エントリ一覧数が5以上の場合に水の波紋を表示
+            // :has は Chrome 105 からの実装と古いブラウザでは対応していないが
+            // なくても問題ないのでそのまま記述
+            &:has(.archive-entry:nth-child(5)) {
+                &::after {
+                    content: "";
+                    position: absolute;
+                    display: inline-block;
+                    background-image: $water-ripples-right;
+                    background-repeat: no-repeat;
+                    width: 800px;
+                    height: 800px;
+                    pointer-events: none;
+                    overflow: hidden;
+
+                    z-index: 0;
+                    bottom: -250px;
+                    right: -200px;
+                }
+            }
         }
-      }
-
-      .pager {
-        position: relative;
-        z-index: 2;
-        width: 100%;
-        max-width: 600px;
-
-        @media screen and (min-width: calc(600px * 2 + 40px + 20px * 2)) {
-          max-width: calc(600px * 2 + 40px);
-        }
-
-        @media screen and (min-width: calc(600px * 3 + 40px * 2 + 40px * 2)) {
-          margin-inline: 40px;
-          max-width: calc(600px * 3 + 40px * 2);
-        }
-      }
-
-      // エントリ一覧数が5以上の場合に水の波紋を表示
-      // :has は Chrome 105 からの実装と古いブラウザでは対応していないが
-      // なくても問題ないのでそのまま記述
-      &:has(.archive-entry:nth-child(5)) {
-        &::after {
-          content: "";
-          position: absolute;
-          display: inline-block;
-          background-image: $water-ripples-right;
-          background-repeat: no-repeat;
-          width: 800px;
-          height: 800px;
-          pointer-events: none;
-          overflow: hidden;
-
-          z-index: 0;
-          bottom: -250px;
-          right: -200px;
-        }
-      }
     }
-  }
 }
