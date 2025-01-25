@@ -1,19 +1,25 @@
 // モジュール
 #box2-inner {
-  padding: 64px;
+  padding: 40px;
+
   color: $footer;
   background-image: $background-footer-gradient;
   display: flex;
 
   flex-direction: column;
   gap: 40px;
+  flex-wrap: wrap;
 
   border-bottom: 2px solid $border;
 
   @media screen and ($mq-md) {
     flex-direction: row;
-    gap: 128px;
     border-bottom: none;
+    padding: 64px;
+  }
+
+  @media screen and ($mq-lg) {
+    gap: 128px;
   }
 
   a {
@@ -59,6 +65,10 @@
   .hatena-module-search-box {
     .hatena-module-body {
       width: 350px;
+
+      @media screen and ($mq-xs) {
+        width: 100%;
+      }
 
       .search-form {
         border-radius: 50px;

@@ -51,9 +51,9 @@ body.page-archive {
         }
 
         // 3カラムで表示できる幅になったら3カラムにする
-        @media screen and (min-width: calc(600px * 3 + 40px * 2 + 20px * 2)) {
+        @media screen and (min-width: calc(600px * 3 + 40px * 2 + 40px * 2)) {
           grid-template-columns: repeat(3, 1fr);
-          padding-inline: 20px;
+          padding-inline: 40px;
           max-width: calc(600px * 3 + 40px * 2);
         }
 
