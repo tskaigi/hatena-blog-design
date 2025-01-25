@@ -138,12 +138,15 @@ body.page-archive {
           }
 
           .archive-entry-tags-wrapper {
+            vertical-align: middle;
+
             .archive-entry-tag-link {
               background-color: $background-tag;
               color: $tag;
-              font-size: 16px;
+              font-size: 12px;
               padding: 2px 15px;
               border-radius: 50px;
+              display: inline-block;
             }
           }
 
@@ -154,6 +157,22 @@ body.page-archive {
             left: 10px;
           }
         }
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        display: inline-block;
+        background-image: $water-ripples-right;
+        background-repeat: no-repeat;
+        width: 800px;
+        height: 800px;
+        pointer-events: none;
+        overflow: hidden;
+
+        z-index: 0;
+        bottom: -250px;
+        right: -200px;
       }
     }
   }

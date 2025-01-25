@@ -1,6 +1,8 @@
 // モジュール
 #box2-inner {
   padding: 40px;
+  z-index: 2;
+  position: relative;
 
   color: $footer;
   background-image: $background-footer-gradient;
