@@ -1,53 +1,96 @@
 // モジュール
 #box2-inner {
-    padding: 64px;
+  padding: 64px;
+  color: $footer;
+  background-image: $background-footer-gradient;
+  display: flex;
+  flex-direction: row;
+  gap: 128px;
+
+  a {
     color: $footer;
-    background-image: $background-footer-gradient;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  & > div {
     display: flex;
-    flex-direction: row;
-    gap: 128px;
+    flex-direction: column;
+    gap: 12px;
+  }
 
-    a {
-        color: $footer;
-        text-decoration: none;
+  .hatena-module-title {
+    font-weight: bold;
+  }
 
-        &:hover {
-            text-decoration: underline;
+  // プロフィールモジュール
+  .hatena-module-profile {
+    .hatena-module-body {
+      position: relative;
+
+      .profile-icon-link {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+      }
+
+      .id,
+      .hatena-follow-button-box,
+      .profile-about {
+        padding-left: 80px;
+      }
+    }
+  }
+
+  // 検索モジュール
+  .hatena-module-search-box {
+    .hatena-module-body {
+        width: 350px;
+
+      .search-form {
+        border-radius: 50px;
+        background-color: $background-search-from;
+        position: relative;
+
+        .search-module-input {
+          box-sizing: border-box;
+          border: none;
+          outline: none;
+          background: none;
+          padding: 10px 30px 10px 20px;
+          font-size: 16px;
+          width: 100%;
+
+          &::placeholder {
+            color: $form-placeholder;
+          }
         }
-    }
 
-    & > div {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-    }
+        .search-module-button {
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          transform: translateY(-50%);
 
-    .hatena-module-title {
-        font-weight: bold;
-    }
+          width: 20px;
+          height: 20px;
 
-    // プロフィールモジュール
-    .hatena-module-profile {
-        .hatena-module-body {
-            position: relative;
+          border: none;
+          outline: none;
+          text-indent: -9999px;
+          cursor: pointer;
 
-            .profile-icon-link {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                left: 0;
-            }
-
-            .id, .hatena-follow-button-box, .profile-about {
-                padding-left: 80px;
-            }
+          background: $background-search-icon;
+          background-blend-mode: multiply;
+          mask-image: $search-icon;
         }
+      }
     }
-
-    // 検索モジュール
-    .hatena-module-search-box {
-        // TODO
-    }
+  }
 }
 
 // はてなブログ デザイン設定 > カスタマイズ > フッタ で HTML を定義する
@@ -74,72 +117,68 @@
 //    </div>
 // </footer>
 footer.custom-footer {
-    font-size: 14px;
-    color: $footer;
-    background-color: $background-footer;
-    display: flex;
-    flex-direction: row;
-    gap: 128px;
-    padding: 64px 0 64px 64px;
+  font-size: 14px;
+  color: $footer;
+  background-color: $background-footer;
+  display: flex;
+  flex-direction: row;
+  gap: 128px;
+  padding: 64px 0 64px 64px;
 
+  p {
+    padding: 0;
+    margin: 0;
+  }
+
+  a {
+    color: $footer;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .logo-group {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    .logo {
+      background-image: $footer-logo;
+      background-repeat: no-repeat;
+      width: 128px;
+      height: 41px;
+
+      // テキストは隠す
+      text-indent: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+
+  .menu-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .sns-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 
     p {
-        padding: 0;
-        margin: 0;
+      font-weight: bold;
     }
 
-    a {
-        color: $footer;
-        text-decoration: none;
-
-        &:hover {
-            text-decoration: underline;
-        }
+    ul {
+      padding: 0 0 0 12px;
+      margin: 0;
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
-
-    .logo-group {
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-
-
-        .logo {
-            background-image: $footer-logo;
-            background-repeat: no-repeat;
-            width: 128px;
-            height: 41px;
-
-            // テキストは隠す
-            text-indent: 100%;
-            white-space: nowrap;
-            overflow: hidden;
-        }
-    }
-
-    .menu-group {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-
-
-    }
-
-    .sns-group {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-
-        p {
-            font-weight: bold;
-        }
-
-        ul {
-            padding: 0 0 0 12px;
-            margin: 0;
-            list-style-type: none;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-    }
+  }
 }

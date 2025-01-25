@@ -11,6 +11,8 @@ $background-footer-gradient: linear-gradient(0deg, #1071D3, #3A89C4);
 $background-footer: #1071D3;
 $background-entries-entry: #fff;
 $background-tag: #1071D3;
+$background-search-from: #fff;
+$background-search-icon: #345DA7;
 
 // text color
 $text: #2A2A2D;
@@ -22,6 +24,7 @@ $entry-title-hover: lighten($entry-title, 30%);
 $date: #C2C2D1;
 $date-hover: darken($date, 20%);
 $tag: #fff;
+$form-placeholder: #AFB7C6;
 
 // link
 $link: #1487bd;
