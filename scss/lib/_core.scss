@@ -12,11 +12,15 @@ body.page-archive {
   div#content {
     #main-inner {
       display: flex;
+      flex-direction: column;
       justify-content: center;
+      align-items: center;
       padding-top: 100px;
       padding-bottom: 50px;
       background-color: $background-entries;
       position: relative;
+      gap: 26px;
+      padding-inline: 20px;
 
       // 水の境界線
       &::before {
@@ -35,7 +39,6 @@ body.page-archive {
         display: grid;
         gap: 40px;
         width: 100%;
-        padding-inline: 20px;
 
         grid-template-columns: 1fr;
 
@@ -46,14 +49,12 @@ body.page-archive {
         // 2カラムで表示できる幅になったら2カラムにする
         @media screen and (min-width: calc(600px * 2 + 40px + 20px * 2)) {
           grid-template-columns: repeat(2, 1fr);
-          padding-inline: 20px;
           max-width: calc(600px * 2 + 40px);
         }
 
         // 3カラムで表示できる幅になったら3カラムにする
         @media screen and (min-width: calc(600px * 3 + 40px * 2 + 40px * 2)) {
           grid-template-columns: repeat(3, 1fr);
-          padding-inline: 40px;
           max-width: calc(600px * 3 + 40px * 2);
         }
 
@@ -159,20 +160,41 @@ body.page-archive {
         }
       }
 
-      &::after {
-        content: "";
-        position: absolute;
-        display: inline-block;
-        background-image: $water-ripples-right;
-        background-repeat: no-repeat;
-        width: 800px;
-        height: 800px;
-        pointer-events: none;
-        overflow: hidden;
+      .pager {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        max-width: 600px;
 
-        z-index: 0;
-        bottom: -250px;
-        right: -200px;
+        @media screen and (min-width: calc(600px * 2 + 40px + 20px * 2)) {
+          max-width: calc(600px * 2 + 40px);
+        }
+
+        @media screen and (min-width: calc(600px * 3 + 40px * 2 + 40px * 2)) {
+          margin-inline: 40px;
+          max-width: calc(600px * 3 + 40px * 2);
+        }
+      }
+
+      // エントリ一覧数が5以上の場合に水の波紋を表示
+      // :has は Chrome 105 からの実装と古いブラウザでは対応していないが
+      // なくても問題ないのでそのまま記述
+      &:has(.archive-entry:nth-child(5)) {
+        &::after {
+          content: "";
+          position: absolute;
+          display: inline-block;
+          background-image: $water-ripples-right;
+          background-repeat: no-repeat;
+          width: 800px;
+          height: 800px;
+          pointer-events: none;
+          overflow: hidden;
+
+          z-index: 0;
+          bottom: -250px;
+          right: -200px;
+        }
       }
     }
   }

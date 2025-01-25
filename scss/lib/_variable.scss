@@ -13,6 +13,8 @@ $background-entries-entry: #fff;
 $background-tag: #1071D3;
 $background-search-from: #fff;
 $background-search-icon: #345DA7;
+$background-pager: #0C7EDC;
+$background-pager-hover: darken($background-pager, 10%);
 
 // text color
 $text: #2A2A2D;
@@ -25,6 +27,7 @@ $date: #C2C2D1;
 $date-hover: darken($date, 20%);
 $tag: #fff;
 $form-placeholder: #AFB7C6;
+$pager: #fff;
 
 // link
 $link: #1487bd;
