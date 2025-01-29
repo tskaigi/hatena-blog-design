@@ -1,60 +1,62 @@
 // Variables
 
 // Font
-$font-family-base: 'Helvetica Neue', 'Helvetica', 'Arial', 'Hiragino Kaku Gothic Pro', 'Meiryo', 'MS PGothic';
-$font-family-monospace: 'Monaco', 'Consolas', 'Courier New', Courier, monospace, sans-serif;
+$font-family-base: 'Helvetica Neue', 'Helvetica', 'Arial',
+  'Hiragino Kaku Gothic Pro', 'Meiryo', 'MS PGothic';
+$font-family-monospace: 'Monaco', 'Consolas', 'Courier New', Courier, monospace,
+  sans-serif;
 
 // 背景色
 $background: #fff;
-$background-entries: #F1F8FF;
-$background-footer-gradient: linear-gradient(0deg, #1071D3, #3A89C4);
-$background-footer: #1071D3;
+$background-entries: #f1f8ff;
+$background-footer-gradient: linear-gradient(0deg, #1071d3, #3a89c4);
+$background-footer: #1071d3;
 $background-entries-entry: #fff;
-$background-tag: #1071D3;
+$background-tag: #0c7edc;
 $background-tag-hover: darken($background-tag, 10%);
 $background-search-from: #fff;
-$background-search-icon: #345DA7;
-$background-pager: #0C7EDC;
+$background-search-icon: #345da7;
+$background-pager: #0c7edc;
 $background-pager-hover: darken($background-pager, 10%);
-$background-table-of-contents: #F1F8FF;
+$background-table-of-contents: #f1f8ff;
 $background-table-head: #a7d3ff;
-$background-code-block: #F1F8FF;
-$background-subscribe: #1071D3;
+$background-code-block: #f1f8ff;
+$background-subscribe: #1071d3;
 $background-subscribe-hover: darken($background-subscribe, 10%);
 
 // text color
-$text: #2A2A2D;
-$text-title: #0C7EDC;
-$text-description: #2A2A2D;
+$text: #2a2a2d;
+$text-title: #0c7edc;
+$text-description: #2a2a2d;
 $footer: #fff;
-$entry-title: #2A2A2D;
+$entry-title: #2a2a2d;
 $entry-title-hover: lighten($entry-title, 30%);
-$date: #C2C2D1;
+$date: #c2c2d1;
 $date-hover: darken($date, 20%);
 $tag: #fff;
-$form-placeholder: #AFB7C6;
+$form-placeholder: #afb7c6;
 $pager: #fff;
-$anchor: #1071D3;
+$anchor: #1071d3;
 $anchor-hover: darken($anchor, 20%);
 $anchor-visited: darken($anchor, 10%);
-$author: #C2C2D1;
+$author: #c2c2d1;
 
 // link
 $link: #1487bd;
 $hover: darken($link, 10%);
 
 // border, marker
-$border: #0C7EDC;
+$border: #0c7edc;
 $border-table: #a8a8b0;
 $border-heading: #dcdce6;
-$marker: #0C7EDC;
+$marker: #0c7edc;
 
 // button
 $btn: #fff;
 $btn-hover: #f5f5f5;
 
 // Media Queries
-$mq-xs: "(max-width: 480px)";
-$mq-sm: "(min-width: 768px)";
-$mq-md: "(min-width: 992px)";
-$mq-lg: "(min-width: 1200px)";
+$mq-xs: '(max-width: 480px)';
+$mq-sm: '(min-width: 768px)';
+$mq-md: '(min-width: 992px)';
+$mq-lg: '(min-width: 1200px)';
