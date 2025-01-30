@@ -1,6 +1,8 @@
 html,
 body {
   font-family: $font-family-base;
+  font-size: 16px;
+
   color: $text;
   background-color: $background;
   line-height: normal;
@@ -10,6 +12,8 @@ body {
 body.page-index,
 body.page-archive {
   div#content {
+    font-family: Inter;
+
     #main-inner {
       display: flex;
       flex-direction: column;
@@ -214,12 +218,9 @@ body.page-archive {
               text-decoration: none;
 
               color: $tag;
-              font-family: Inter;
-              font-size: 16px;
               text-align: center;
               font-style: normal;
               font-weight: 500;
-              line-height: normal;
 
               &::before {
                 content: '#';
