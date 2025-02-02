@@ -91,17 +91,18 @@ header#blog-title {
     overflow: hidden;
 
     z-index: 1;
-    top: -550px;
-    right: -550px;
+    top: -500px;
+    right: 50%;
+    transform: translateX(750px);
 
     @media screen and ($mq-sm) {
         top: -400px;
-        right: -400px;
+        transform: translateX(800px);
     }
   }
 
   // 水紋左
-  @media screen and ($mq-sm) {
+  @media screen and ($mq-md) {
     &::after {
       content: "";
       position: absolute;
@@ -115,7 +116,8 @@ header#blog-title {
 
       z-index: 1;
       top: 120px;
-      left: -150px;
+      left: 50%;
+      transform: translateX(-800px);
     }
   }
 }
