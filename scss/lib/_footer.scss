@@ -138,6 +138,8 @@
 //    </div>
 // </footer>
 footer.custom-footer {
+  z-index: 2;
+  position: relative;
   font-size: 14px;
   color: $footer;
   background-color: $background-footer;
