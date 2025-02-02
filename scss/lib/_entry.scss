@@ -188,6 +188,13 @@
             h2 {
                 border-bottom: 1px solid $border-heading;
             }
+
+            // 記事内キーワードリンク
+            .keyword {
+                text-decoration-style: dashed;
+                text-decoration-color: $keyword-link;
+                text-decoration-thickness: 1px;
+            }
         }
 
         .entry-footer {

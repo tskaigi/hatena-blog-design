@@ -1,5 +1,27 @@
 .pager {
   width: 100%;
+  padding-block: 50px;
+
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  margin-inline: auto;
+
+  display: flex;
+  gap: 10px;
+
+  @media screen and (min-width: calc(
+                            600px * 2 + 40px + 20px * 2
+                        )) {
+    max-width: calc(600px * 2 + 40px);
+  }
+
+  @media screen and (min-width: calc(
+                            600px * 3 + 40px * 2 + 40px * 2
+                        )) {
+    margin-inline: 40px;
+    max-width: calc(600px * 3 + 40px * 2);
+  }
 
   .pager-next,
   .pager-prev {
@@ -9,6 +31,8 @@
     font-weight: bold;
     display: block;
     border-radius: 50px;
+    width: 100%;
+    position: relative;
 
     &:hover {
       background-color: $background-pager-hover;

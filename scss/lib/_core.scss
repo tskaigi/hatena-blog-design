@@ -14,21 +14,16 @@ body.page-archive {
   div#content {
     font-family: Inter;
 
-    #main-inner {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding-top: 100px;
-      padding-bottom: 50px;
+    #main {
       background-color: $background-entries;
-      position: relative;
-      gap: 26px;
       padding-inline: 20px;
+      padding-top: 100px;
+      padding-bottom: 26px;
+      position: relative;
 
       // 水の境界線
       &::before {
-        content: '';
+        content: "";
         width: 100%;
         height: 250px;
         position: absolute;
@@ -37,273 +32,261 @@ body.page-archive {
         background-image: linear-gradient(0deg, #f1f8ff, #85c4ff);
         opacity: 0.6;
         top: 0;
+        left: 0;
       }
 
-      // 検索したときの表示
-      .search-result {
+      #main-inner {
         display: flex;
-        flex-direction: column-reverse;
-        z-index: 3;
-        width: 100%;
-        max-width: 600px;
-        margin-bottom: 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
-        @media screen and (min-width: calc(
+        gap: 26px;
+
+        // 検索したときの表示
+        .search-result {
+          display: flex;
+          flex-direction: column-reverse;
+          z-index: 3;
+          width: 100%;
+          max-width: 600px;
+          margin-bottom: 0;
+
+          @media screen and (min-width: calc(
                             600px * 2 + 40px + 20px * 2
                         )) {
-          max-width: calc(600px * 2 + 40px);
-        }
+            max-width: calc(600px * 2 + 40px);
+          }
 
-        @media screen and (min-width: calc(
+          @media screen and (min-width: calc(
                             600px * 3 + 40px * 2 + 40px * 2
                         )) {
-          margin-inline: 40px;
-          max-width: calc(600px * 3 + 40px * 2);
-        }
+            margin-inline: 40px;
+            max-width: calc(600px * 3 + 40px * 2);
+          }
 
-        .search-result-form {
-          max-width: 600px;
-          width: 100%;
-
-          border-radius: 50px;
-          background-color: $background-search-from;
-          position: relative;
-          border: none;
-
-          .search-result-input {
-            box-sizing: border-box;
-            border: none;
-            outline: none;
-            background: none;
-            padding: 10px 30px 10px 20px;
-            font-size: 16px;
+          .search-result-form {
+            max-width: 600px;
             width: 100%;
 
-            &::placeholder {
-              color: $form-placeholder;
+            border-radius: 50px;
+            background-color: $background-search-from;
+            position: relative;
+            border: none;
+
+            .search-result-input {
+              box-sizing: border-box;
+              border: none;
+              outline: none;
+              background: none;
+              padding: 10px 30px 10px 20px;
+              font-size: 16px;
+              width: 100%;
+
+              &::placeholder {
+                color: $form-placeholder;
+              }
+            }
+
+            .search-result-button {
+              position: absolute;
+              right: 10px;
+              top: 50%;
+              transform: translateY(-50%);
+
+              width: 20px;
+              height: 20px;
+
+              border: none;
+              outline: none;
+              text-indent: -9999px;
+              cursor: pointer;
+              opacity: 1;
+
+              background: $background-search-icon;
+              background-blend-mode: multiply;
+              mask-image: $search-icon;
             }
           }
-
-          .search-result-button {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-
-            width: 20px;
-            height: 20px;
-
-            border: none;
-            outline: none;
-            text-indent: -9999px;
-            cursor: pointer;
-            opacity: 1;
-
-            background: $background-search-icon;
-            background-blend-mode: multiply;
-            mask-image: $search-icon;
-          }
-        }
-      }
-
-      .archive-heading,
-      .archive-header-category {
-        z-index: 2;
-      }
-
-      // エントリ一覧
-      .archive-entries {
-        display: grid;
-        gap: 40px;
-        width: 100%;
-
-        grid-template-columns: 1fr;
-
-        @media screen and ($mq-sm) {
-          grid-template-columns: 1fr;
         }
 
-        // 2カラムで表示できる幅になったら2カラムにする
-        @media screen and (min-width: calc(
-                            600px * 2 + 40px + 20px * 2
-                        )) {
-          grid-template-columns: repeat(2, 1fr);
-          max-width: calc(600px * 2 + 40px);
-        }
-
-        // 3カラムで表示できる幅になったら3カラムにする
-        @media screen and (min-width: calc(
-                            600px * 3 + 40px * 2 + 40px * 2
-                        )) {
-          grid-template-columns: repeat(3, 1fr);
-          max-width: calc(600px * 3 + 40px * 2);
-        }
-
-        // エントリ一覧の1要素
-        .archive-entry {
-          width: 100%;
+        .archive-heading,
+        .archive-header-category {
           z-index: 2;
-          margin-inline: auto;
+        }
 
-          border: 2px solid $border;
-          box-sizing: border-box;
-          border-radius: 16px;
-          background-color: $background-entries-entry;
+        // エントリ一覧
+        .archive-entries {
+          display: grid;
+          gap: 40px;
+          width: 100%;
 
-          padding: 30px 20px 35px 20px;
-          position: relative;
+          grid-template-columns: 1fr;
 
           @media screen and ($mq-sm) {
-            width: 600px;
+            grid-template-columns: 1fr;
           }
 
-          // カテゴリがある場合、その分の余白を確保する
-          &:has(.categories) {
-            padding-bottom: 75px;
-          }
-
-          // エントリタイトル・日付
-          .archive-entry-header {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-
-            margin-bottom: 12px;
-
-            .archive-date {
-              font-size: 16px;
-              font-weight: normal;
-              margin: 0;
-              padding: 0;
-
-              a {
-                color: $date;
-                text-decoration: none;
-
-                &:hover {
-                  color: $date-hover;
-                }
-              }
-            }
-
-            .entry-title {
-              font-size: 24px;
-              font-weight: bold;
-              color: $entry-title;
-              margin: 0;
-              padding: 0;
-
-              a {
-                color: $entry-title;
-                text-decoration: none;
-
-                &:hover {
-                  color: $entry-title-hover;
-                }
-              }
-            }
-          }
-
-          // カテゴリ
-          .categories {
-            position: absolute;
-            bottom: 45px;
-            left: auto;
-
-            .archive-category-link {
-              background-color: $background-tag;
-              padding: 1px 15px;
-              border-radius: 50px;
-              display: inline-block;
-              text-decoration: none;
-
-              color: $tag;
-              text-align: center;
-              font-style: normal;
-              font-weight: 500;
-              line-height: 2cap;
-
-              &::before {
-                content: '#';
-                padding-right: 5px;
-              }
-
-              &:hover {
-                background-color: $background-tag-hover;
-              }
-            }
-          }
-
-          // エントリサムネイル
-          .entry-thumb {
-            width: 110px;
-            height: 110px;
-            border-radius: 4px;
-          }
-
-          // エントリ説明
-          .entry-description {
-            margin: 0;
-            padding: 0;
-            font-size: 16px;
-            color: $text;
-          }
-
-          // はてなブログタグ
-          // カテゴリがあるので非表示にしてしまう
-          .archive-entry-tags-wrapper {
-            display: none;
-          }
-
-          // はてなスター
-          .social-buttons {
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-          }
-        }
-      }
-
-      // ページャー表示
-      // 共通スタイルは _pager.scss に記述しているが、幅などのスタイルはこちらで定義している
-      .pager {
-        position: relative;
-        z-index: 2;
-        width: 100%;
-        max-width: 600px;
-
-        @media screen and (min-width: calc(
+          // 2カラムで表示できる幅になったら2カラムにする
+          @media screen and (min-width: calc(
                             600px * 2 + 40px + 20px * 2
                         )) {
-          max-width: calc(600px * 2 + 40px);
-        }
+            grid-template-columns: repeat(2, 1fr);
+            max-width: calc(600px * 2 + 40px);
+          }
 
-        @media screen and (min-width: calc(
+          // 3カラムで表示できる幅になったら3カラムにする
+          @media screen and (min-width: calc(
                             600px * 3 + 40px * 2 + 40px * 2
                         )) {
-          margin-inline: 40px;
-          max-width: calc(600px * 3 + 40px * 2);
+            grid-template-columns: repeat(3, 1fr);
+            max-width: calc(600px * 3 + 40px * 2);
+          }
+
+          // エントリ一覧の1要素
+          .archive-entry {
+            width: 100%;
+            z-index: 2;
+            margin-inline: auto;
+
+            border: 2px solid $border;
+            box-sizing: border-box;
+            border-radius: 16px;
+            background-color: $background-entries-entry;
+
+            padding: 30px 20px 35px 20px;
+            position: relative;
+
+            @media screen and ($mq-sm) {
+              width: 600px;
+            }
+
+            // カテゴリがある場合、その分の余白を確保する
+            &:has(.categories) {
+              padding-bottom: 75px;
+            }
+
+            // エントリタイトル・日付
+            .archive-entry-header {
+              display: flex;
+              flex-direction: column;
+              gap: 5px;
+
+              margin-bottom: 12px;
+
+              .archive-date {
+                font-size: 16px;
+                font-weight: normal;
+                margin: 0;
+                padding: 0;
+
+                a {
+                  color: $date;
+                  text-decoration: none;
+
+                  &:hover {
+                    color: $date-hover;
+                  }
+                }
+              }
+
+              .entry-title {
+                font-size: 24px;
+                font-weight: bold;
+                color: $entry-title;
+                margin: 0;
+                padding: 0;
+
+                a {
+                  color: $entry-title;
+                  text-decoration: none;
+
+                  &:hover {
+                    color: $entry-title-hover;
+                  }
+                }
+              }
+            }
+
+            // カテゴリ
+            .categories {
+              position: absolute;
+              bottom: 45px;
+              left: auto;
+
+              .archive-category-link {
+                background-color: $background-tag;
+                padding: 1px 15px;
+                border-radius: 50px;
+                display: inline-block;
+                text-decoration: none;
+
+                color: $tag;
+                text-align: center;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 2cap;
+
+                &::before {
+                  content: "#";
+                  padding-right: 5px;
+                }
+
+                &:hover {
+                  background-color: $background-tag-hover;
+                }
+              }
+            }
+
+            // エントリサムネイル
+            .entry-thumb {
+              width: 110px;
+              height: 110px;
+              border-radius: 4px;
+            }
+
+            // エントリ説明
+            .entry-description {
+              margin: 0;
+              padding: 0;
+              font-size: 16px;
+              color: $text;
+            }
+
+            // はてなブログタグ
+            // カテゴリがあるので非表示にしてしまう
+            .archive-entry-tags-wrapper {
+              display: none;
+            }
+
+            // はてなスター
+            .social-buttons {
+              position: absolute;
+              bottom: 10px;
+              left: 10px;
+            }
+          }
         }
-      }
 
-      // エントリ一覧数が5以上の場合に水の波紋を表示
-      // :has は Chrome 105 からの実装と古いブラウザでは対応していないが
-      // なくても問題ないのでそのまま記述
-      &:has(.archive-entry:nth-child(5)) {
-        &::after {
-          content: '';
-          position: absolute;
-          display: inline-block;
-          background-image: $water-ripples-right;
-          background-repeat: no-repeat;
-          width: 800px;
-          height: 800px;
-          pointer-events: none;
-          overflow: hidden;
+        // エントリ一覧数が5以上の場合に水の波紋を表示
+        // :has は Chrome 105 からの実装と古いブラウザでは対応していないが
+        // なくても問題ないのでそのまま記述
+        &:has(.archive-entry:nth-child(5)) {
+          &::after {
+            content: "";
+            position: absolute;
+            display: inline-block;
+            background-image: $water-ripples-right;
+            background-repeat: no-repeat;
+            width: 800px;
+            height: 800px;
+            pointer-events: none;
+            overflow: hidden;
 
-          z-index: 0;
-          bottom: -250px;
-          right: -200px;
+            z-index: 0;
+            bottom: -250px;
+            right: -200px;
+          }
         }
       }
     }
