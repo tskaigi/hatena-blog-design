@@ -42,7 +42,7 @@
 
             // エントリの見出し
             .entry-title {
-                font-size: 26px;
+                font-size: 28px;
                 font-weight: bold;
                 color: $entry-title;
                 margin: 0;
@@ -66,7 +66,7 @@
                     background-color: $background-tag;
                     color: $tag;
                     font-size: 12px;
-                    padding: 2px 15px;
+                    padding: 2px 10px;
                     border-radius: 50px;
                     display: inline-block;
                     text-decoration: none;
@@ -97,7 +97,7 @@
                     top: 20px;
                     left: 50%;
                     transform: translateX(-50%);
-                    font-weight: bold;
+                    font-weight: normal;
                 }
             }
 
