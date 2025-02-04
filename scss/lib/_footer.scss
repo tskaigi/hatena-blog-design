@@ -48,6 +48,11 @@
     .hatena-module-body {
       position: relative;
 
+      .profile-icon {
+        background-color: white;
+        border-radius: 50%;
+      }
+
       .profile-icon-link {
         position: absolute;
         top: 50%;
@@ -107,6 +112,7 @@
 
           background: $background-search-icon;
           background-blend-mode: multiply;
+          background-repeat: no-repeat;
           mask-image: $search-icon;
         }
       }
