@@ -114,6 +114,7 @@
           background-blend-mode: multiply;
           background-repeat: no-repeat;
           mask-image: $search-icon;
+          mask-repeat: no-repeat;
         }
       }
     }
