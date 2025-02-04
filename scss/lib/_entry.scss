@@ -42,7 +42,7 @@
 
             // エントリの見出し
             .entry-title {
-                font-size: 32px;
+                font-size: 26px;
                 font-weight: bold;
                 color: $entry-title;
                 margin: 0;
@@ -183,10 +183,28 @@
 
             h1 {
                 border-bottom: 1px solid $border-heading;
+                font-size: 26px;
             }
 
             h2 {
                 border-bottom: 1px solid $border-heading;
+                font-size: 24px;
+            }
+
+            h3 {
+                font-size: 22px;
+            }
+
+            h4 {
+                font-size: 20px;
+            }
+
+            h5 {
+                font-size: 18px;
+            }
+
+            h6 {
+                font-size: 16px;
             }
 
             // 記事内キーワードリンク
