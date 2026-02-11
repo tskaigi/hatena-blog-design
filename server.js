@@ -17,6 +17,7 @@ const server = await createServer({
       configureServer: (server) => {
         server.middlewares.use((_req, res, next) => {
           res.setHeader("access-control-allow-private-network", "true");
+          res.setHeader("content-type", "text/css; charset=UTF-8");
           next();
         });
       },
