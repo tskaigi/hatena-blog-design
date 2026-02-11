@@ -24,7 +24,7 @@ $background-subscribe-hover: #96B8FD;
 
 // text color
 $text: #2a2a2d;
-$text-title: rgb(59, 130, 246);
+$text-title: #1249D8;
 $text-description: #2a2a2d;
 $footer: #fff;
 $entry-title: #2a2a2d;
@@ -60,3 +60,7 @@ $mq-xs: '(max-width: 480px)';
 $mq-sm: '(min-width: 768px)';
 $mq-md: '(min-width: 992px)';
 $mq-lg: '(min-width: 1200px)';
+
+$header-height: 400px;
+$header-display-height: 350px;
+$header-center-height: $header-display-height / 2;

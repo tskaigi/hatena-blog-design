@@ -1,8 +1,7 @@
 .entry {
-    max-width: 800px;
-    width: 100%;
+    width: min(100%, 850px);
     margin-inline: auto;
-    padding-inline: 10px;
+    padding-inline: 16px;
     box-sizing: border-box;
 
     position: relative;
