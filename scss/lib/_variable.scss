@@ -8,16 +8,14 @@ $font-family-monospace: 'Monaco', 'Consolas', 'Courier New', Courier, monospace,
 
 // 背景色
 $background: #fff;
-$background-entries: #f1f8ff;
-$background-footer-gradient: linear-gradient(0deg, #1071d3, #3a89c4);
-$background-footer: #1071d3;
+$background-footer: #1249D8;
 $background-entries-entry: #fff;
-$background-tag: #0c7edc;
-$background-tag-hover: darken($background-tag, 10%);
+$background-tag: #1249D8;
+$background-tag-hover: #96B8FD;
 $background-search-from: #fff;
 $background-search-icon: #345da7;
-$background-pager: #0c7edc;
-$background-pager-hover: darken($background-pager, 10%);
+$background-pager: #1249D8;
+$background-pager-hover: #96B8FD;
 $background-table-of-contents: #f1f8ff;
 $background-table-head: #a7d3ff;
 $background-code-block: #f1f8ff;
@@ -47,7 +45,8 @@ $hover: darken($link, 10%);
 $keyword-link: #e5e5e5;
 
 // border, marker
-$border: #0c7edc;
+$border: #96B8FD;
+$border-hover: #1071d3;
 $border-table: #a8a8b0;
 $border-heading: #dcdce6;
 $marker: #0c7edc;
