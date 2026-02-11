@@ -2,20 +2,41 @@
 
 header#blog-title {
   position: absolute;
-  top: 56px; // はてなブログヘッダー分
+  top: 0;
   left: 0;
   width: 100%;
   z-index: 1;
 
   #blog-title-inner {
     background-size: 100% auto;
-    height: $header-height !important;
+    height: auto !important;
+    width: 100%;
     position: relative;
+    margin-top: 56px; // はてなブログヘッダー分
+    aspect-ratio: 1500 / 540; // SP時のヘッダー画像の比率維持
+    padding-bottom: 150px;
+    background-position: inherit !important;
 
+    @media screen and ($mq-md) {
+      background-position: center !important;
+    }
+
+    @media screen and ($mq-sm) {
+      padding-bottom: 0px;
+      height: $header-display-height !important;
+      aspect-ratio: inherit;
+    }
+
+    // ぼかし
     &::before {
-      content: "";
+      content: none;
+
+      @media screen and ($mq-sm) {
+        content: "";
+      }
+
       position: absolute;
-      bottom: 0;
+      bottom: -1px;
       left: 0;
       width: 100%;
       height: 50%;
@@ -31,22 +52,32 @@ header#blog-title {
     gap: 14px;
 
     position: absolute;
-    top: $header-center-height;
     left: 50%;
-    transform: translate(-50%, -50%);
     z-index: 2;
-
-    width: min(100%, 800px);
-    height: 200px;
-
+    height: 150px;
     background-color: #fff;
+    width: 100%;
+    bottom: 0;
+    top: inherit;
+    transform: translate(-50%, 0);
+
+    @media screen and ($mq-sm) {
+      width: min(100%, 800px);
+      top: $header-center-height;
+      transform: translate(-50%, -50%);
+      height: 200px;
+    }
 
     h1#title {
-      font-size: 30px;
+      font-size: 25px;
       font-weight: bold;
       text-align: center;
       margin: 0;
       z-index: 2;
+
+      @media screen and ($mq-sm) {
+        font-size: 30px;
+      }
 
       a {
         color: $text-title;
@@ -86,7 +117,11 @@ header#blog-title {
     }
 }
 
-// ヘッダー調整
+// ヘッダー高さ調整
 div#content {
   margin-top: $header-display-height;
+
+  @media screen and ($mq-xs) {
+    margin-top: 250px;
+  }
 }
