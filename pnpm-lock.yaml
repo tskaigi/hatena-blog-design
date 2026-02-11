@@ -9,16 +9,16 @@ importers:
   .:
     devDependencies:
       autoprefixer:
-        specifier: ^10.4.17
+        specifier: ^10.4.24
         version: 10.4.24(postcss@8.5.6)
       normalize.css:
         specifier: ^8.0.1
         version: 8.0.1
       sass:
-        specifier: ^1.71.1
+        specifier: ^1.97.3
         version: 1.97.3
       vite:
-        specifier: ^5.1.4
+        specifier: ^5.4.21
         version: 5.4.21(sass@1.97.3)
 
 packages:
