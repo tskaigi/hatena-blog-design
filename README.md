@@ -59,23 +59,23 @@ $ npm install
 つづいて下記のコマンドで、開発サーバーを起動します。`BLOG_DOMAIN_NAME` の部分には、上で用意した動作確認に使うブログのドメイン名 (例: `example.hatenablog.com`) を入力してください。
 
 ``` console
-$ npm start -- BLOG_DOMAIN_NAME
+$ pnpm start BLOG_DOMAIN_NAME
 ```
 
 コマンド実行例:
 
 ``` console
-$ npm start -- tskaigi-test.hateblo.jp
+$ pnpm start tskaigi-test.hateblo.jp
 ```
 
 以上が完了すると、動作確認用のブログに開発中のテーマが反映されます。ブログにアクセスし、表示を確認しながらテーマの開発を行なってください。
 
 ## コンパイル
 
-テーマの開発が完了したら、下記のコマンドでSCSSをコンパイルします。コンパイルの結果は `build/boilderplate.css` に出力されます。
+テーマの開発が完了したら、下記のコマンドでSCSSをコンパイルします。コンパイルの結果は `build/boilerplate.css` に出力されます。
 
 ``` console
-$ npm run build
+$ pnpm run build
 ```
 
 # 構成
