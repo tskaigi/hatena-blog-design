@@ -1,28 +1,88 @@
 // ヘッダーのスタイル
 
 header#blog-title {
-  height: 270px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+
+  #blog-title-inner {
+    background-size: 100% auto;
+    height: auto !important;
+    width: 100%;
+    position: relative;
+    margin-top: 56px; // はてなブログヘッダー分
+    aspect-ratio: 1500 / 540; // SP時のヘッダー画像の比率維持
+    padding-bottom: 150px;
+    background-position: inherit !important;
+
+    @media screen and ($mq-md) {
+      background-position: center !important;
+    }
+
+    @media screen and ($mq-sm) {
+      padding-bottom: 0px;
+      height: $header-display-height !important;
+      aspect-ratio: inherit;
+    }
+
+    // ぼかし
+    &::before {
+      content: none;
+
+      @media screen and ($mq-sm) {
+        content: "";
+      }
+
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background-image: linear-gradient(0deg, #fff, transparent);
+      z-index: 1;
+    }
+  }
 
   #blog-title-content {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 14px;
-    position: relative;
+
+    position: absolute;
+    left: 50%;
+    z-index: 2;
+    height: 150px;
+    background-color: #fff;
+    width: 100%;
+    bottom: 0;
+    top: inherit;
+    transform: translate(-50%, 0);
+
+    @media screen and ($mq-sm) {
+      width: min(100%, 800px);
+      top: $header-center-height;
+      transform: translate(-50%, -50%);
+      height: 200px;
+    }
 
     h1#title {
-      font-size: 30px;
+      font-size: 25px;
       font-weight: bold;
       text-align: center;
       margin: 0;
       z-index: 2;
 
+      @media screen and ($mq-sm) {
+        font-size: 30px;
+      }
+
       a {
         color: $text-title;
         text-decoration: none;
+        text-shadow: none;
       }
     }
 
@@ -33,91 +93,9 @@ header#blog-title {
       margin: 0;
       z-index: 2;
       padding-inline: 5px;
+      text-shadow: none;
 
       color: $text-description;
-    }
-
-    // 黄色金魚
-    @media screen and ($mq-sm) {
-      &::before {
-        content: "";
-        display: inline-block;
-        background-image: $goldfish-yellow;
-        background-repeat: no-repeat;
-        width: 162px;
-        height: 123px;
-
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-450px);
-        z-index: 3;
-      }
-    }
-
-    // 青金魚
-    &::after {
-      content: "";
-      display: inline-block;
-      background-image: $goldfish-blue;
-      background-repeat: no-repeat;
-      width: 103px;
-      height: 123px;
-
-      position: absolute;
-      z-index: 3;
-
-      bottom: -120px;
-      right: 20px;
-
-      @media screen and ($mq-sm) {
-        top: -25px;
-        right: 50%;
-        transform: translateX(400px);
-      }
-    }
-  }
-
-  // 水紋右
-  &::before {
-    content: "";
-    position: absolute;
-    display: inline-block;
-    background-image: $water-ripples-right;
-    background-repeat: no-repeat;
-    width: 800px;
-    height: 800px;
-    pointer-events: none;
-    overflow: hidden;
-
-    z-index: 1;
-    top: -500px;
-    right: 50%;
-    transform: translateX(750px);
-
-    @media screen and ($mq-sm) {
-        top: -400px;
-        transform: translateX(800px);
-    }
-  }
-
-  // 水紋左
-  @media screen and ($mq-md) {
-    &::after {
-      content: "";
-      position: absolute;
-      display: inline-block;
-      background-image: $water-ripples-left;
-      background-repeat: no-repeat;
-      width: 400px;
-      height: 400px;
-      pointer-events: none;
-      overflow: hidden;
-
-      z-index: 1;
-      top: 120px;
-      left: 50%;
-      transform: translateX(-800px);
     }
   }
 }
@@ -137,4 +115,13 @@ header#blog-title {
     .blog-controlls-subscribe-btn {
         z-index: 2;
     }
+}
+
+// ヘッダー高さ調整
+div#content {
+  margin-top: $header-display-height;
+
+  @media screen and ($mq-xs) {
+    margin-top: 250px;
+  }
 }
