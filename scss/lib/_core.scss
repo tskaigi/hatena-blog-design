@@ -118,14 +118,6 @@ body.page-archive {
             max-width: calc(600px * 2 + 40px);
           }
 
-          // 3カラムで表示できる幅になったら3カラムにする
-          @media screen and (min-width: calc(
-                            600px * 3 + 40px * 2 + 40px * 2
-                        )) {
-            grid-template-columns: repeat(3, 1fr);
-            max-width: calc(600px * 3 + 40px * 2);
-          }
-
           // エントリ一覧の1要素
           .archive-entry {
             width: 100%;
@@ -137,7 +129,7 @@ body.page-archive {
 
             padding: 20px 20px 40px 20px;
             position: relative;
-
+            box-sizing: border-box;
             outline: 1px solid $border;
 
             @media screen and ($mq-sm) {
