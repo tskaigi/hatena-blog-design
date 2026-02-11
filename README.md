@@ -59,13 +59,13 @@ $ npm install
 つづいて下記のコマンドで、開発サーバーを起動します。`BLOG_DOMAIN_NAME` の部分には、上で用意した動作確認に使うブログのドメイン名 (例: `example.hatenablog.com`) を入力してください。
 
 ``` console
-$ pnpm start -- BLOG_DOMAIN_NAME
+$ pnpm start BLOG_DOMAIN_NAME
 ```
 
 コマンド実行例:
 
 ``` console
-$ pnpm start -- tskaigi-test.hateblo.jp
+$ pnpm start tskaigi-test.hateblo.jp
 ```
 
 以上が完了すると、動作確認用のブログに開発中のテーマが反映されます。ブログにアクセスし、表示を確認しながらテーマの開発を行なってください。
