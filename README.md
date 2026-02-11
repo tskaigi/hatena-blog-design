@@ -72,7 +72,7 @@ $ pnpm start tskaigi-test.hateblo.jp
 
 ## コンパイル
 
-テーマの開発が完了したら、下記のコマンドでSCSSをコンパイルします。コンパイルの結果は `build/boilderplate.css` に出力されます。
+テーマの開発が完了したら、下記のコマンドでSCSSをコンパイルします。コンパイルの結果は `build/boilerplate.css` に出力されます。
 
 ``` console
 $ pnpm run build
