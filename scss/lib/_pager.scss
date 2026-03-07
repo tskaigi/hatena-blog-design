@@ -8,19 +8,14 @@
   margin-inline: auto;
 
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 10px;
 
   @media screen and (min-width: calc(
                             600px * 2 + 40px + 20px * 2
                         )) {
     max-width: calc(600px * 2 + 40px);
-  }
-
-  @media screen and (min-width: calc(
-                            600px * 3 + 40px * 2 + 40px * 2
-                        )) {
-    margin-inline: 40px;
-    max-width: calc(600px * 3 + 40px * 2);
   }
 
   .pager-next,
